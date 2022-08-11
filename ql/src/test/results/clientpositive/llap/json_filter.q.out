@@ -1,0 +1,1058 @@
+PREHOOK: query: DROP TABLE IF EXISTS tweets
+PREHOOK: type: DROPTABLE
+POSTHOOK: query: DROP TABLE IF EXISTS tweets
+POSTHOOK: type: DROPTABLE
+PREHOOK: query: create table tweets (id string, text string, attachments string, author_id string, context_annotations string,
+conversation_id string, created_at string, entities string, geo string, in_reply_to_user_id string, lang string,
+non_public_metrics string, organic_metrics string, possibly_sensitive string, promoted_metrics string,
+public_metrics string, referenced_tweets string, reply_settings string, source string, withheld string, matching_rules string
+)   ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.JsonSerDe'
+    STORED AS
+    INPUTFORMAT 'org.apache.hadoop.mapred.TextInputFormat'
+    OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+PREHOOK: type: CREATETABLE
+PREHOOK: Output: database:default
+PREHOOK: Output: default@tweets
+POSTHOOK: query: create table tweets (id string, text string, attachments string, author_id string, context_annotations string,
+conversation_id string, created_at string, entities string, geo string, in_reply_to_user_id string, lang string,
+non_public_metrics string, organic_metrics string, possibly_sensitive string, promoted_metrics string,
+public_metrics string, referenced_tweets string, reply_settings string, source string, withheld string, matching_rules string
+)   ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.JsonSerDe'
+    STORED AS
+    INPUTFORMAT 'org.apache.hadoop.mapred.TextInputFormat'
+    OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+POSTHOOK: type: CREATETABLE
+POSTHOOK: Output: database:default
+POSTHOOK: Output: default@tweets
+PREHOOK: query: LOAD DATA LOCAL INPATH "/Users/meylismatiyev/Documents/hive/itests/qtest/../..//data/files/twitter_small.json" INTO TABLE tweets
+PREHOOK: type: LOAD
+#### A masked pattern was here ####
+PREHOOK: Output: default@tweets
+POSTHOOK: query: LOAD DATA LOCAL INPATH "/Users/meylismatiyev/Documents/hive/itests/qtest/../..//data/files/twitter_small.json" INTO TABLE tweets
+POSTHOOK: type: LOAD
+#### A masked pattern was here ####
+POSTHOOK: Output: default@tweets
+PREHOOK: query: select text from tweets
+PREHOOK: type: QUERY
+PREHOOK: Input: default@tweets
+#### A masked pattern was here ####
+POSTHOOK: query: select text from tweets
+POSTHOOK: type: QUERY
+POSTHOOK: Input: default@tweets
+#### A masked pattern was here ####
+RT @itswynterm: my right cheek has a mind of its own https://t.co/vkzkbBrWUs
+RT @marla_vous: Dear Media,
+
+I realize the Elon Musk story is big, but what happened to the Ginni and Clarence Thomas story?
+
+You weren’t j…
+@Eyeswideopen69 That and Kevin’s boyfriend is Westminster #ToryScum MP, I think that’s why Kevin is not only an absolute fuckin’ moron, but also a #ToryScum apologist! 🤔🤔🤔🏴󠁧󠁢󠁳󠁣󠁴󠁿
+RT @AnyFeelings1: you left me standing here in the hope you come back https://t.co/gHpqybUmn5
+RT @meroutro: spring days 🌸🌿 https://t.co/8neqh72b0k
+@YieldGuild @CyBallOfficial Scam scam scam scam scam
+@catturd2 YES!!!!!!!!!!  YES!!!!!!!!!  You'll be ok... Sorry about the drink coming up that you have to have... Don't think about it while drinking it.  Just enjoy the part where it does the job it' ssupposed to do  YAY   THANK YOU JESUS https://t.co/Eq8ifmdixH
+@mkurdickhard Knock knock. Pakeettt
+RT @Lyka_x_Thai: Just a good day at home🎀☀🦄
+
+Im available to chat or video call🎮🤳
+https://t.co/dD5HmD9ezP https://t.co/qdEPYkHnnG
+@TanujGanga @samant_uday @AjitPawarSpeaks We want online exam
+RT @vamsikaka: Mega Power Star @alwaysRamCharan was welcomed by a sea of fans today in Vijayawada. What looked like a mass gathering was tr…
+RT @Durgayu: Available for sex chat and voice calls dear😘😘😘 https://t.co/14AIDhbyrD
+RT @Jejson66666: I love that scent 💓 https://t.co/zcgIl9JyTw
+RT @RaavNFT: $100 • $ADA • 1 winner • 30 minutes • ⏳
+
+- RT♻️+ RT♻️ https://t.co/EcdAzFyyb6 pinned📌
+RT @PTIofficial: Anwar Maqsood and Moin Akhtar (late) always ahead of times! Video via @ak_niaazi #MarchAgainstImportedGovt https://t.co/Iq…
+RT @ducaticorse: It's #WallpaperWednesday! 📱 Which one are you picking for your lock screen? #PortugueseGP https://t.co/P6v7xe0JXl
+RT @TaeTaeJewkee: From day one Jungkook has shown &amp; inspired people to be Kind,Loving &amp; Empathetic!Jungkook is the most humble person,Lovin…
+RT @DarkoMarc: Florid Blade, Fists of Ala Mhigo, at your service. https://t.co/b0Qe2brSgy
+RT @AprilsBlessing_: Lmaoooo we are losing our minds https://t.co/erkFlGKy9k
+RT @andihiyat: Me on                                Me in
+social media                     real life https://t.co/V5nDnK9LYZ
+RT @HariSin10686252: #TheRightSpiritualPath
+Supreme and Great @SaintRampalJiM Maharaj Ji is the one and only true saint on earth who is sha…
+Well. Well. Char https://t.co/zHPCpIUN9v
+RT @JanineTaverner: Just a cute little (fun) guy hanging out in my backyard 🍄 https://t.co/0RkJgQLpX3
+RT @schfess: sch! paskibra be like: https://t.co/dEU1s8XiTn
+RT @haelovs: treasure jeongwoo, haruto and asahi sang haechan's ost in their live today 💗 https://t.co/2qTpW4bUzw
+great opinion for someone who wasnt present for the past years hehe.
+
+man's breaking his back to provide for your son, u can shut it &gt;: https://t.co/d32JP9lImb
+RT @cafreiman: The “Elon Musk could have solved problems X, Y, and Z with the $44 billion he spent on Twitter” discourse is tiresome consid…
+RT @johnnone91: i wanna be railed by him
+
+after eating his ass of course https://t.co/U2W0iW0TpT
+I'm trying to keep it together. https://t.co/n2X0Pl9MZr
+RT @ezraklein: I think I have a very different definition of what it means to "fix Twitter" than most people. https://t.co/buwBJgxsjp
+RT @sankaissed: no more hearing any san ass slander ‼️‼️ https://t.co/1Gw7KJ6Kot
+RT @gsmiIes: my sunshine https://t.co/THDxcwlulM
+@TheTNHoller @MarshaBlackburn Marsha Blackburn also maintains a large list of blocked words and phrases on her Facebook pages that will hide posts from public view whenever those words or phrases appear in comments. She's also tried blocking people in the past, until she was reminded that it is illegal.
+RT @STXRBOY999: $V up +$15.6k on the day already and holding runners now! https://t.co/E5X91QvC6y
+#ArchieNeko #100X #LOADİNG!Global @ArchieNeko_
+550 Holders🚀🔥🚀
+@elonmusk
+#Metaverse
+#Ethereum
+#shiba
+#Tether
+#BTC
+#Binance
+#FLOW
+#Crypto
+#LUNA
+#FTM
+#Solana
+#Bitcoin
+#BabyDoge
+#NFTs
+#NFTGiveaway
+#Bitcoin
+#kriptopara
+Uniswap Buy THEDIP!
+0xFE5F69dfa2d4501E78078266F6d430c079098f90 https://t.co/XDqXdg2Pit https://t.co/uDS0ZTRQbR
+RT @NEARmaverick: To celebrate🍾the partnership🤝of @KaizenDAO_ and @NEARMisfits  
+
+I am giving away this choice #OG #pfpNFT ! 
+
+1️⃣ Like ❤️…
+RT @nonkdys: i need this in my life https://t.co/L4q8xTHK4T
+@VivianJo11 Back in the day on Reddit, there was a Doge tipping system. We need that on twitter now!
+RT @SOUMENTHAKUR12: Good morning everyone 🙏
+#UmarRiaz's upcoming MV #EidHoJayegi song making pe vlog aayega... R u excited ?
+
+#UmarArmy ple…
+RT @Monika_Yadav__: #TheRightSpiritualPath
+
+Every human being has got lotuses or chakras in their body whether they are male or female. The…
+RT @mgzones: smiley boba ball https://t.co/AVk4JRZMJJ
+RT @HyunJiUnited: Annyeong, Loves. We are pleased to announced that HyunJi United has collaborated with @lovemoontae and @BabyGogu for a fa…
+RT @cmalxx95: dude it’s fine just meet me in the woods after chapter 2.0 😉 https://t.co/0ON86ujdXe
+RT @jeff_lanenews: Ever wonder what happened to the couple who was supposed to rehab Crain but fled Richmond after stealing from Menards?…
+@NoPauseTv_ 🤦🏽‍♂️she done learned that from somebody 😞
+RT @sbp_02: Damn your beauty hits me differently! You're making me gay!
+
+RUNTOME COMING THRU
+#AlexaIlacad | #KDEstrada
+#KDLex | #RunToMe
+ct…
+@BrianKempGA Boy that comment really touched a nerve with you huh?  I can’t wait to vote you out.
+@newscientist I somehow don't think that would work for something the size of SpaceX's Starship 😀
+RT @CCCSoftball1: Another day to compete! #GAMEDAY https://t.co/jXdPI9oskO
+@Thermiel Man, I don't like Wendy's twitter acc
+RT @ukraine_world: 👍A little girl is warmly welcoming her father she has not seen for months. https://t.co/0yyDhdX3Lf
+🔴GAME DAY⚫️
+
+⚾️Mountain 7 District Match-up⚾️
+🆚 | @GateCity_BSBL 
+⏰ | 6 pm, ET
+🏟 | Shupe Field
+📍 | Wise, VA
+
+#holdtherope #keepdiggin https://t.co/bs2eRjqx7O
+RT @sunbaeknims: Wonwoo looks so cute when he’s surprised 😭😭 https://t.co/P2D6oRXA8u
+@you_dosser Hopefully he's entertaining 🤞🏼
+Oh no https://t.co/jUT8BVGGlX
+RT @MythallarNFT: 🎉 WL GIVEAWAY 🎉
+
+We are giving away 3X Chubby Jiras WL spots! They are the official Godjira-approved derivative that expa…
+Check out this clients super cool garage setting, he used our charcoal peel and stick wood wall panels to make that cool accent! Head on over to our website to grab yours today https://t.co/9LCyIy2BLP https://t.co/MNYPkrZjjb
+RT @rangerrollins: “If you're a smart pro, you're going to catch on that [KT] kind of does the same things over and over again. She doesn't…
+Vanessa checked the maximum mortgage available on 25  Rates for £100,000 over 25 years: https://t.co/Gn51lqhjCl
+RT @filmy_monks: All Time Highest Grossing South Indian Films in UAE - GCC 
+
+#Prabhas #Yash #Mohanlal #RamCharan #JrNTR #Baahubali2 #KGFCha…
+RT @pokejungle: What Pokémon fan wouldn't want a genuine Mimikyu umbrella to protect them from chilling rain or the harsh sunlight? Quite t…
+Are you interested in life insurance? What questions do you have? https://t.co/zg2Qln3jts
+A simple misunderstanding that’s the one fuck a disagreement https://t.co/bxAX3n2cyE
+RT @mobyinsights: ☀ gm ☀
+
+Giving away 3 Trait Sniper Alpha Lifetime Pass mintlist spots! 
+
+🟣 Follow @trait_sniper + @mobyinsights 
+🟣 Like/R…
+RT @TheJakeneutron: Fun things I figured out yesterday…
+
+• How to emulate the “thin line, thick outline” thing from CN bumpers
+• How to emu…
+here for @scyttalg1 aming mahal 💗 https://t.co/gYZTIRuNqG
+@ScottBaio I was so happy to get back on Twitter today and find out you still follow me!! 🎉🎉🎉🎉🎉
+RT @Cleobatta: The reason I can’t go vegan https://t.co/ZOLfJqn6Kc
+@MuratYi44262900 @TekinogluDogu @Truefeedback_io @tegisto_io @Oceanland_io 👟LANUNA MOVE-DEMO MOVE TO EARN APP
+
+💥Users can download the M2E App now for Android devices
+👉Link https://t.co/9CVWcsgzvS
+
+📱iOS version is coming soon
+
+https://t.co/iTgfKFzBKQ
+
+https://t.co/GRcNK0OFQy
+
+PINKSALE: https://t.co/fk5D3eCGCv
+
+$LUNU #Lanuna #movetoearn #RebaseAPY
+RT @TODBOverseas: Belle's IG story update!
+
+#DonBelle | #AlwaysWithDONBELLE https://t.co/TpHB96cQCZ
+RT @AirdropDet: 🔍 New #Airdrop: OctoChef 
+
+💲 Reward: Up to 100 Stakes + 30 NFTs (~$17,200) referral pool
+
+🔴 Start the airdrop bot https://t…
+@testoman72 I Iove how hairy you are. 😍
+RT @CollectorCbe: Rotary Club Of Coimbatore Metropolis &amp;Ganga Hospitals Launch of Global Grant Projects #Coimbatore #rotary CBE #Medical #a…
+RT @NastyCalamari: I’m a good boy~!!
+Trade with the awesome @Munkeesgomu https://t.co/r2jrphdyDC
+RT @alifrance5: Ready for our #Dickson community candidates debate. There’s one thing missing…my opponent @PeterDutton_MP! #auspol https://…
+@HealthPsychKell I hope so.  Good luck.
+white women sometimes &gt;&gt;&gt;&gt;&gt; https://t.co/rhh6vrmUkH
+RT @Giovanni_montee: 🎁 #NFTGiveaway 🎁
+
+🏆 1x White List spot for @TheDriftNFT
+
+TO ENTER ⬇️
+
+1️⃣ Follow @TheDriftNFT
+2️⃣ Like this❤️
+3️⃣ Retw…
+i was impressed 
+
+MIYEON SOLO DEBUT
+#MIYEON_DRIVE_OUTNOW #MYisHERE #MIYEON #미연 https://t.co/N67nKoAV36
+RT @loveIyjackjae: here’s BamBam’s Times Square ad today ☺️💚 
+
+ #BamBam #뱀뱀 #GOT7 #갓세븐 @BamBam1A @BAMBAMxABYSS https://t.co/ahGRlezQxW
+RT @BabbuMetaverse: I just published 😽Hello Babbu! https://t.co/eg8eRQwJ7y https://t.co/uwFYvPHreh
+RT @Roohan_Ahmed: Khalid Nawaz, the driver who was killed in yesterday's suicide blast inside Karachi University, had five daughters and tw…
+RT @libsoftiktok: Amazon leadership held a session for employees dealing with the “trauma” of Matt Walsh’s book becoming a best seller and…
+RT @CryptoKevvvv: Free #NFT giveaway 🎉
+
+Follow 👉 @youngzuki &amp; @Dawson_3303 &amp; @CryptoKevvvv 
+
+Drop your $ETH address, Follow &amp; RT🔄 https://t…
+@pragain0222 Good morning Phoenix!  Have a lovely day!  😊🤗🌹
+RT @LuaSwap: .@zoagame_, a #P2E #NFT-based auto battler in which the universe becomes your campaign ground, is positioned to launch its #ID…
+RT @troupy_: AND WE'RE 🔴LIVE🎙️🔴
+
+still a big anxiety everytime I press "Start Streaming" a year on 🤣
+Wondering if we will hear anything from the leadership of @RutgersU ?? https://t.co/pXUfGue35V
+RT @INTLKJI: [UPDATE] 220427 EXO-L community update with Kai
+
+“2022.04.27. #SUHO #XIUMIN #KAI #SEHUN Travel the World on #EXO's Ladder Spec…
+RT @trolee_: @KicchaSudeep @ajaydevgn Sudeep replies be like: https://t.co/PyCeJO5sFQ
+@Scoopy_f1 @bunniefied @selenaroyf Hello po. pa like and rt ng tweet below thankyou so much po🥺💗
+ 
+https://t.co/ujlbCrgoSX
+@CryptoMichNL Thank you very much_,,! 
+
+https://t.co/GQEVwJrj7M thx!
+I’m on upland 🌎 https://t.co/CeCHEYsP1q
+@KXAN_News He is moving twitter to Austin !
+RT @g3thaunted: never been better vibes than this https://t.co/9TxvMWUK84
+RT @brndxq: please spotify https://t.co/u7TIZ0Oeuy
+RT @9BillionTigers: I never tweet about Elon Musk because I read the time Azealia Banks called him Apartheid Clyde and felt like that was t…
+Surprising absolutely no one who has been paying attention. https://t.co/XU8NEc8ctU
+RT @kradelljasmine: Scotland 💕💕💕💕💕💕💕 https://t.co/PYlroJPfb5
+@sammbenkert Omg seriously how do they do it!! Then they share and we are down for a week
+RT @Roshan_Rinaldi: Elon Musk spent $44 billion to prevent you from retweeting this photo: https://t.co/JSOMsty8LB
+RT @PeachesElise: I heard it was titty Tuesday? ☺️ https://t.co/Uf8NKkyt5o
+RT @Imani_Barbarin: Inspiration exploitation always bothered me before the pandemic, but now I find anyone who participates in sharing it—e…
+RT @taegiveaway: $30 | 420.000 IDR • 3 HOURS🎽🛹
+
+- RT &amp; RT LIKE https://t.co/xTGY4A1UMI 📌
+RT @mladynag: this is the kind of conversations I imagine Sky and Jayce had https://t.co/OmodIzEQUv
+RT @HakiNFT: ⛩️HAKI x Ivy Boys 🔥
+
+We are giving away 3 Whitelist spots for Ivy Boys!
+
+To Enter: 
+1) Follow @HakiNFT &amp; @BBRCOfficial
+2) Like…
+RT @maybeeevirgo: a love language: https://t.co/HZppGyB68w
+RT @soliel_sol: #chongqui #xingyun brainrot https://t.co/vgvkFxWWQk
+RT @TheHeira: $200 ~ Ends in 48 Hrs.
+
+($50)
+🔸 RT - follow : @IDZ_01 
+
+($75)
+🔸 Like collection : https://t.co/2Xi8U6L1fb
+
+($75)
+🔸upvote : ht…
+RT @_istansb19: #KENTELL shippers WYAT?
+
+@keun16308352 @stellajero_ 
+#DunkinPHSB19Concert #SB19xDunkinPH @SB19Official #SB19 💠 https://t.co…
+RT @bluestiIIs: #kelzones wts lfb loona ph
+
+yves loona decluttering
+— 320 PHP
+— all on-hand! 
+— mod: sco/ggx 
+— dop: PAYO 
+
+dm to claim! ht…
+RT @hamtaro_skjn_7: Are you ready？💜
+#BTS #btsfanart https://t.co/196HQBVCe2
+RT @bluberrymin: jimin and suga in a few days https://t.co/XZXHiJx8hi
+Strangling my buddy 🍆💦 #uncut #uncutcock #uncutdaddy @peniscollection @excellence_uc @ https://t.co/Lz9JRRgEIz
+RT @JustThomp: I’m gay and I’m always early. We exist. https://t.co/FajTRY6asT
+RT @meaniehoon: cheol: i have no idea where mingyu writes his lyrics, he just brings them at some point
+
+mingyu:
+
+#MINGYU #민규 https://t.co/…
+RT @Hourlyjuls: Thailand https://t.co/iAMvkDAxGE
+RT @MammoottyFC369: #CBI5TheBrain Trailer All set to Light up the Mighty Burj Khalifa as Part of the Movie's Global Launch 
+
+Promotions goi…
+@morandiniblog Ils utilisent twitter pour rédiger leurs articles, sans doute. 🤭
+RT @caajaem: [rts are appreciated]
+
+wts / want to sell 🛒
+
+photocard jaemin
+— id card &amp; departure
+— epoxy, 4x6 cinema dream, ar hot summer s…
+RT @HakiNFT: ⛩️HAKI x Ivy Boys 🔥
+
+We are giving away 3 Whitelist spots for Ivy Boys!
+
+To Enter: 
+1) Follow @HakiNFT &amp; @BBRCOfficial
+2) Like…
+RT @dhanushkraja: Love you Bhai
+Niggas said peak Ben Simmons is montverde Ben Simmons?😭😭😭 https://t.co/Kabh7FOpxr
+RT @tBcBt_: #MewGulf
+ “It’s ok ” https://t.co/gazBy5JqZP
+RT @jikookheart: THE MOMENT JIMIN LOOKS UP TO MAKE EYE CONTACT WITH JUNGKOOK 😭💔 https://t.co/SAIeMocDvX
+RT @JoeyKaotyk: just got my Vietnamese citizenship 🤯 https://t.co/CnJTyRdu4m
+RT @ChrisMcEleny: 2,313 children dont receive Free School meals in Inverclyde because of attainment funding (Which Scot Gov have cut by £2M…
+RT @Iowa_1776: Ues he is....👇🤬 https://t.co/GUjOli6F8B
+RT @gabrieljesus9: Winners 🏆 🇧🇷 🇵🇹 https://t.co/nU9dxkDsVl
+British media is absolutely correct, Biden &amp; Biden administration is a total communist driven NWO NAZI regime. This will never happen in the US. https://t.co/RjU6KfYv9t
+RT @PBBSeasonTen: Part 2
+
+#PinoyBigBrother https://t.co/jKx8Ow0DOs
+RT @fightpicsgohard: Anthony Joshua makes his entrance
+
+Cardiff, Wales (2018) https://t.co/xmTAkloj0P
+Today marks Yom HaShoah, a time to remember and pay tribute to the more than six million Jews who were systematically persecuted and murdered by the Nazis during the Holocaust. #HRBC #HolocaustMemorialDay https://t.co/R9XLp1sHAY
+RT @princepuca: Cant get enough of this dude 
+
+#NUcarnival #wip https://t.co/7KzPwZ0BzK
+RT @HasbullaHive: he remembered he was late for taraweeh during his IG live 😭😭😭
+https://t.co/ILiEBxVIDq
+RT @Captn_Hurricane: Alignment of 5 planets, Earth, Mars, Venus, Saturn and Jupiter, as seen from Africa at 4 am. https://t.co/g1XWoa53h3
+@n_arthaud C’est un peu different Nathalie. Elon ne paye pas de journalistes et ne leur donne aucune directive.
+What gives, @elonmusk? https://t.co/xOSW3xuLHf
+RT @kaiiteaa: Them
+
+#sonamy #SonicTheHedgehog https://t.co/A7LpyCSp1N
+@LavanyaBallal @ajaydevgn Why did he write Jan Gan Man which is actually Bengali. I can only compliment  his education.
+RT @yujinlauv: So wakeone also dont let to1 ( bg under wake1) to do vlive freedom oh wtf💀💀?? how about we get their ass together https://t.…
+RT @simonearchives: kate sharma is this scene was glowing https://t.co/49gvTpBqLw
+RT @OmnaTigray: “First, there was only hunger, but the last two days, her body started itching, and when she scratched her body, her body s…
+RT @AdvoBarryRoux: In case you missed it. Sam is a living legend. https://t.co/Nyn0AEsqBn
+RT @WackyWombats: Momma and her baby https://t.co/1hDyDfnKqe
+RT @Ellatrixbb_: Is there a candle there you shit? 😈 full video and more videos on my OF: https://t.co/uyVue5R6nO #ballbusting #CBT #Fimdom…
+RT @sunshine_080507: winter: i was lying down playing w/ my phone, suddenly she who was next to me. originally she would just call me "minj…
+RT @SuxHypocrisy: @alifrance5 I move that Dutton get booted. #DicksonVotes
+https://t.co/KqYzfovfwq
+RT @autoass: Legends https://t.co/hfpRu5OCqg
+RT @Gidi_Traffic: “@keyint01: @Gidi_Traffic I just hope this will trend, Odunsi Faith has broken a record and she gave Nigeria 🇳🇬 a good na…
+RT @Welikumbura: Police removed the cutouts of the killed journalists hanged on the Presidential Secretariat's fence. They are afraid of th…
+RT @lapulgafreak: The most underrated campaign in Champions League history. Lionel Messi's 18/19 was something special.
+
+https://t.co/RRPZh…
+@jusdaydreamin this time the butterfly effect works on our favor
+RT @JustCamHayden: I’m actually in tears lmfaooo 😭😭😭 https://t.co/TTEddSHujY
+RT @Ela_VII: HES REALLLLL https://t.co/00x89fVdIf
+jaechan why 😭😭😭😭
+
+https://t.co/MNfzLUKAC9
+RT @al_violinist: I'll always love you, rest well baby bro ❤️❤️ https://t.co/339a7THZ6f
+RT @abc13houston: Russia opened a new front in its war in Ukraine on Wednesday, cutting two European Union nations that staunchly back Kyiv…
+Literally every single day you go to the trending page and there's bigotry, misinformation, lies, and general hateful conduct from conservatives being broadcast to everybody. 
+
+Twitter enables these people. We'd like it to do that less, not more. That's the #LiberalMeltDown. https://t.co/H8Q5i1JGd2
+@tanyakanrl Done min https://t.co/x1YWPMQp4Z
+RT @xaqonyx: Ace update @weareoneEXO #EXO https://t.co/GI8syQxIoz
+@SameeraKhan im in 😂
+RT @HxHContents: Anime:Hunter x Hunter https://t.co/xHjlbGLjLV
+RT @AORINGOHUZIN: -NEW ALBUM KEY VISUAL-
+
+“THE PROLOGUE PHOTO”
+
+#MrsGREENAPPLE 
+#THEPROLOGUEPHOTO https://t.co/kMgyEuQJqA
+RT @teumeunion: #TREASURE 🍀 WEVERSE UPDATE
+
+[ENG]
+
+"Let's hang out "
+
+#트레저
+@treasuremembers https://t.co/30L16kq0Dr
+RT @jinnieslamp: “Yours” remains in the #1 spot and “Super Tuna” remains at #3 on the Billboard Hot Trending Songs Chart for the last 24 ho…
+@MZHemingway @TheBabylonBee Kind of funny to see the "old right" lining up to warn conservatives that Musk is not a savior when they have set the bar so low in terms of what can be done to restore traditional values.
+@asimistudio This ring is absolutely gorgeous 💗
+RT @AirdropStario: 💧 VikingPokerDAO Airdrop 💧
+
+🏆 Task:          ➕ 3 NFTs each
+
+🔛 Airdrop Link &amp; Information: https://t.co/2BOwl8ni91
+
+#cryp…
+exatamente isso aki https://t.co/1ZmYADyblG
+RT @HawleyMO: Here’s an idea for ⁦@elonmusk⁩. Open the books on who Twitter has shadow banned, who Twitter has suspended, who they’ve throt…
+RT @ms_muzicwoman: The video is in English. The author is advising readers in Poland to pay attention.
+Europe still doesn't fkking get it. https://t.co/JCtJFdwI03
+RT @ireneyin2nft: 🐮 Merry Pals  WL Giveaway🌼
+
+Merry Pals will mint on 29th
+2 × MerryList from @MerryPals
+
+To enter:
+🔹Follow  
+@MerryPals
+@i…
+If you see the frog first, you have a straightforward personality, he added. https://t.co/BV2oMx9hlv https://t.co/GIZhDdFp30
+RT @GoStripers: He's back.
+
+Ronald Acuña Jr. returns to Gwinnett this week to continue his rehab assignment with the Stripers. 
+
+Get your t…
+RT @BTSVChartData: V becomes the First Korean Idol in history to have 5 songs with over 100M streams each on Spotify. 
+
+#ChristmasTree100M…
+@gun_eth Same
+RT @BafflingPics: a girl holding a bag of popcorn https://t.co/QmLJ6bBRGs
+RT @PanikaBindia: #TheRightSpiritualPath
+
+He is Kabir God whose Glory all these Holy Books of Hinduism sing. He is the Supreme God, called…
+RT @HoopsHotel: Just saw Katt Williams on tv, so here’s this video https://t.co/959jkXcwLS
+#AXS - long alert 💰🤑
+
+Exchange     : FTX
+Market         : $AXS - $PERP
+Volume        : $182,377
+Price            : $39.774
+
+$BTC #BTC $ETH #ETH https://t.co/MlZ8qEuU4r
+RT @rempitlogic: Ping 500ms https://t.co/WPLJTOV5JO
+RT @SupercorpMedia: "You were carrying me"
+
+"Like Supergirl? I wish!"
+
+🧐
+
+#SupercorpCanon https://t.co/5l76B45H4r
+RT @chris_srr: Chin up!
+#Straykidsfanart #BangChan https://t.co/Rac8XPK7dW
+RT @1STNAMESILENT: mood. https://t.co/EZjLShE4dl
+RT @BogochIsaac: "More than 1 million children in Ghana, Kenya &amp; Malawi have received one or more doses of the world’s first malaria vaccin…
+@AV_Antonova Meowwww🤍✨ https://t.co/jmJ0amdCXm
+RT @starmagicphils: Ladies and gentlemen—
+
+The GODDESS— our very first SLAY Cover Girl Alexa Ilacad, has arrived!
+Get ready to be inspired…
+RT @MZHemingway: Are we sure this is satire? “Eccentric Billionaire Accomplishes More For Free Speech In One Afternoon Than Republicans Hav…
+Indiana Boasts Having One of the Top Three High Schools in America https://t.co/fdS8UsT4gi @kiss106evv
+@doughn00t Donut 
+One piece
+Supportive
+RT @RCBTweets: The only way @imVkohli knows to take on a challenge, is to stare at it without any fear! 👊🏻💪🏻
+
+#PlayBold #WeAreChallengers #…
+RT @MythinformedMKE: Move over Ukraine, hating Elon Musk is the new 'current thing'. https://t.co/vFXcfLtxQ1
+RT @majhi_sraban: #TheRightSpiritualPath
+By taking initiation from a Complete Guru, do bhakti and get your welfare done. 
+~JagatGuru 
+~Sain…
+RT @Clem_Autain: Rappel en passant : la volonté de certains milliardaires de mettre la main sur nos espaces d'information et de sociabilité…
+Our government can't "solve" our own problems with a $4 trillion annual budget, but the loonies are outraged Musk didn't solve the world's problems with $44 billion. Cry more. 😭☕️
+RT @NTNLRAIL: Summer Sky- OUT 13.05.22 https://t.co/TvVs1jQF7D
+RT @LollyDamesXXX: Surprise surprise guess what I did????? @LollyDamesXXX https://t.co/CCrNPCArIM
+RT @Prism_eth: 🎁GIVEAWAY !🎁
+
+Prizes
+🏆25$ in ETH
+🏆10 WL
+
+1️⃣Follow @nftvinyls
+2⃣Retweet &amp; Like
+3️⃣Join their Discord: https://t.co/jWY0728Yt…
+@dinotterly @pledis_17 cheating on you with seungkwan🤍
+@RonFilipkowski What an idiot. He is totally out of his class.
+RT @CNEWS: Mathieu Bock-Côté : «Elon Musk arrive avec une conception de la liberté d'expression qui est intégrale [...] Et une bonne partie…
+RT @jenmercieca: Here is my circle of awesome democracy-defending smartypantses. 🤩 https://t.co/wBjL57cwqt
+@Holy_Elle Love those dempals
+RT @CBRMidAtlantic: Thanks to all the Coldwell Banker administrative professionals for your hard work and
+support every day to help staff,…
+Promote it on @NftsOverdose https://t.co/BbDXoyxY8z
+RT @lalliaumaru: Pink gang rise up https://t.co/GBljbXxzU3
+@SuspectRWFed The late Terry Davis warned us about the glow-in-the-darks and what to if you encounter one 
+https://t.co/auvf9ztvN5
+RT @britroboomin: it’s a D1 athlete somewhere losing his mind and morals watching this
+cant believe my motivation to get well soon is the party next wk. this isn't me, this is patricia 😅 https://t.co/gybe4A6rtQ
+RT @SeanOSu29478216: How I'm fighting back... Get growing folks. Everyone can grow some sort of food, even if it's just spuds in pots on a…
+RT @nottzak: he running and gaining no distance im crying 😭😭😭😭😭😭😭😭😭😭😭
+Also this art goes raw ty red
+RT @cherrypowers_: Don’t just like &amp; RT, follow me
+I’ll follow back
+Dm if necessary https://t.co/WzkhYTHHhK
+RT @AmonTRD_99: Mona Tentacle Animation 
+🎞: @vici_neko &amp; @KitsuneEcchi https://t.co/MYXf7SUuAT
+RT @TheBatmanFilm_: WB has released #TheBatman deleted Arkham scene director's commentary! (1/3)
+https://t.co/6hYxgLElaO
+RT @soruchan26: ⭐ Rate me 1-10 ⭐
+🔥 ⭕nlyfans 7️⃣0️⃣% off to $3️⃣
+💕 Erotic Cosplay 💎 Uncensored
+💦 Pic/Vid Nude Top and Bottom
+( Link Below ⤵️…
+@reneziv @CozyBoyzNFT done https://t.co/3XxjGEccl8
+This nigga french? https://t.co/U5Z6LFVCaI
+RT @19040729A: he slep
+#Ikenography #IkeStreamland https://t.co/Bd9hcX8tMS
+Whats the highest contested shot you've made? #nba2k22 #XboxShare #howdidimakethat @NBA2KLab @NBA2KLeague @BearDaBeast23 #shootersshoot #itshouldhavebeengreen #gettingbetter1gameatatime https://t.co/hBvfsDcFRm
+RT @BentoBoiNFT: 🎉 3 @IsekaiMeta WHITE LIST SPOT GIVEAWAY!
+
+To enter:
+🙏Follow 
+@IsekaiMeta , @BentoGiveaways &amp; @N1am99 
+❤️Like + RT
+✅Tag a…
+@abc13houston @JudgeKPGeorge @WaltDisneyWorld Disgusting. We do not want pedo’s and groomers in Texas. Actually… this is Texas. Bring it here and we will clean it up quick. Watch. 😂 you pedos ain’t gonna like how though. We stand our ground in Texas. You know what they do to pedos in TDC? 🤣
+RT @papuchochoe: viegoverse https://t.co/m1gt810nw1
+@The_Egg_Society @HungryDoods Shoot me a DM! I work with projects to potentially sell out their collection and have insane marketing offers! 📈
+RT @PortalSigridBr: It gets dark so I can see the stars 🎤😂 https://t.co/CD6t3VgLRU
+RT @tnAchieves: The tnAchieves Summer Bridge Program is a FREE, three-week program that helps students become more academically and sociall…
+@bifewife_ @Sunny_Hours_ You want proof you got proof! also can you draw a Duckie? https://t.co/vqgdPZyYA2
+@AndrewMitch Look forward to having ya today!
+RT @CharlyHarleyxo: Sanctity of a suspended quiet moment 🌿 https://t.co/vWOAl4W796
+@postcovidshow @FelineFiendz Well done, love to see it
+RT @RealAlexMouse: Vivziepop should just say "fuck it" and make these two voice demons https://t.co/OX0118ozmk
+RT @klrubieq: ⠀⠀⠀⠀⠀⠀⠀⠀⠀#̵ 𓈒 THE 1975 𓈒 #̵
+
+⠀╺@̵͙ 𓈒 10bath free pic
+⠀╺@̵͙ 𓈒 form location + link + pin
+⠀╺@̵͙ 𓈒 change : emoji , quote
+⠀╺@̵͙…
+@ResusCGMedia I'd love a print of this.
+Never bend your head Always hold it high Look the world straight in the eye
+
+#WWTheSetUp FraLaine @iammendozapau @teampauangels https://t.co/qsvYZu2eMV
+RT @LaQArth: WIN AN AUNTYVAX NFT + WL SPOTS! 🔥🚀
+
+🏆 10 winners will win an Auntyvax NFT
+🏆 10 runners up will be considered for WL 
+
+PUBLIC M…
+@BrandiSheri_ Wow, what a beauty.
+How's the way to you?
+RT @sunflowallsvol6: the world                       with harry styles https://t.co/Zo05adOBUy
+@Yusman5577 @WatcherGuru @elonmusk No its not. It's free speech to special interests
+@nadia_switha Help people Don't think about what religion they belong to. Humanity has nothing to do with religion. It belongs to God.
+A/C MCB /1153650781011827.Branch.1213
+A/C UBL / 0109000278520024 . Branch.1938
+RT @4NOLOGUE: LET'S PULL UP!
+STAY TUNED!
+
+#4NOLOGUE https://t.co/jZsAxnoMxo
+@AnnoyedColt @KevinAg84820161 @17vBy_ @LegendGamerXZ @GdizzlePlays Mr Elon sir can you give me 1B robux I will gladly appreciate it
+RT @Jonathan_Witt: And one of the world’s richest presidents is South African Cyril Ramaphosa, but he hasn’t done anything useful in his li…
+RT @envidadatatrack: Because while the EnviDa #sensor collecting environmental data, 360-degree #camera will collect the images of that are…
+RT @AHappierDay: “I suppose you’re all wondering why I gathered you here today.” https://t.co/dPShj6Aeij
+RT @OfficialMonstaX: 📢
+#몬스타엑스 #FAN_CON
+#몬베베 와의 TOP-SECRET🕶🗃
+&lt; #MX_AGENT &gt;
+
+📡 CONCEPT PHOTO
+#형원 #HYUNGWON
+
+#MONSTA_X #MONSTAX
+#몬베베6기 #몬스타엑스팬…
+1 of the most common questions i get about @impulsedrops is “what’s the value for consumers/users?” 
+
+i always tell people to check the app store https://t.co/H4jn1eThq7
+RT @KyivIndependent: These are the indicative estimates of Russia’s combat losses as of April 27, according to the Armed Forces of Ukraine.…
+RT @Kitt_me_not: [Splatoon X Kirby] 
+Happy 30th Anniversary, Kirby! ⭐️🦑
+#Splatoon #Kirby #Kirby30th https://t.co/sCTFl75iIG
+@ArtByDezzi thisss 🥵https://t.co/wy1GIjFv7o
+RT @business: BREAKING: Archegos founder Bill Hwang and his CFO have been charged with federal criminal violations resulting from the firm’…
+#TheRightSpiritualPath
+Human life will be successful by reading and following the book 'Jeeene Ki Raah'.  There will be no evil of any kind in the family.
+
+#SantRampalJiMaharaj_App 
+👁️👁️👇
+
+https://t.co/r8CcEulFqq https://t.co/nZh7drYPu5
+RT @ivanrioufol: Panique chez les censeurs! La décision de #Musk de libérer #Twitter du politiquement correct affole les flics de la pensée…
+RT @favheartstopper: home 🏠❤️ https://t.co/y8O367Jnle
+RT @ZelenkoZev: Hi. I’m trying spread life saving information. Can you please invite your followers to follow my Twitter?  Ty
+RT @dreamjeons: "i miss my mom" 
+"how did my mom always manage to do this?" 😞
+
+ https://t.co/TmeVPcqZwS
+RT @winflrose: GIVEAWAY $15 | 210.000 IDR ˊˎ-
+
+➵ retweet &amp; follow https://t.co/Z4SB88jOOm
+➵ rt &amp; like their 📌
+
+Ends in 2 hours, go luvs 🕊️
+RT @BrightLeafLabs: A selected few in the Guardians collection have been purposed to more than just terrestrial duties. 
+24h hours until mi…
+RT @takanashikiara: an important message https://t.co/Wxfbt60zp3
+||But you have an account for Ishigami already 🤨 https://t.co/itANqOyG1A
+RT @talyssa929: more fresh tweets pa sweethearts. 
+
+RUNTOME COMING THRU https://t.co/BFQmLGp9Qo
+@svensundgaard @MPRnews @TomCrann Global warming is freezing
+bUT?????????????? BUT WHAT https://t.co/fSkSKChiO1
+I don't see my token in @BitMartExchange @Texan_Shinja @Shib_nobi @DeFiKoolAid https://t.co/aHsUIT35QB
+RT @PlutoHendrix24: women have 5 tweets
+RT @IanMCalvert: Excellent work @cj_dinenage on making this happen and getting it to the House👏
+
+Plus a big thank you to @Sophieslegacy10 f…
+@benshapiro I'm on the cusp of two signs. Does that mean I have astrological dysmorphia?
+@goblin_sodapop we need to do something about coastals
+RT @rafarestt: Aww They look cute together when they're not trying to kill each other &lt;3 #Rafarest #TiffanyValentine #tiffany #Chucky #Nica…
+RT @DJMessi23: The difference between Team Good and Team Evil is that Team Evil has been winning for so long they do not appreciate a WIN..…
+RT @HutCat: could be us https://t.co/3mbV3uRDCc
+RT @nabihjw: They are the cutest 💙 https://t.co/veqM80IF5Q
+RT @mrfunny____: Side chick dey fat? 😂😂😂😂 https://t.co/u3HsoDGeA9
+I love me some her🥰 https://t.co/70MHKiaOaR
+RT @PrivatizeEdu: Elon musk could have fixed all of America’s problems for a one time payment of $44B, but the government can’t do it with…
+Who is Annabel Lee? And why do I care? https://t.co/przXTK6pgw
+RT @cacaodwarf: 🥋 massage session with happy ending🥋🍆🤫
+
+I needed some massages and the guy who came was a model! I started touching his dic…
+This. https://t.co/vQRrRdkEzC
+RT @CrazyRobotNFT: Today is the presale of the #TheElegantBot 🤖
+
+😱More than 50% of the Collection speaks
+
+💰40% of sales will be distributed…
+RT @o6frog: #txt say you love me https://t.co/au1JeSYA8l
+RT @viewsoff_: California. https://t.co/6esawRGWSh
+I LOVE HIM SO MUCH https://t.co/uzf9Sza9ma
+Job opportunity!
+21-0112 Software Engineer 2 #LI-PG1 #ITjobs #hiringnow
+https://t.co/KLbrqEB5zg
+@Methi_Dana Shareef abhi will gonna be ashreef (blink)
+6 MONTHS WITH ABHIRA
+RT @SheNastyyAsf: What’s stopping you from fucking the shit outta me daddy🥺 https://t.co/n9OoFKX6iS
+Here’s a little short story I put together about salad. https://t.co/T3OYemWOZv
+@Pamaj oh my
+RT @Hourlyjuls: need to escape here https://t.co/Gh6tNJVPm3
+RT @AaliyaA19026973: #upstaffnurse2021posting 
+Honourable chief minister of Uttar Pradesh 
+@myogioffice
+ kindly help us to get joining of n…
+RT @IonArtInc: Ready for Surreal Garden week 2? ✌️ @ZilkerGarden #surrealgardenatx #zilkerbotanicalgarden https://t.co/LsQasMfeBt
+RT @jessecase: For perspective, if you somehow made $200,000 every single DAY from Columbus' landing in 1492 until now, you still wouldn't…
+@REGGIES_WORLD @femaleatlhawk Well many say, Trust in Schlenk.. even had me saying it pre-season.  ..WE WILL SEE
+@Dams_Lefty I know but like it used to be more common and not particularly actionable. Twitter purged a lot of those accounts after the peak in alt right activity in the US.
+RT @JohnnyCallicutt: Nancy by Ernie Bushmiller September 2,1947 https://t.co/sGKBv7UB4T
+RT @Lev7iiG: Benzema scores: “he’s better than Ronaldo
+
+Lewa scores: “he’s better than Ronaldo
+
+Messi scores: “He’s better than Ronaldo
+
+Ro…
+RT @DetroitBNWO: ⚠️♠️Instant classic for your BNWO porn collection😵‍💫🧴💦
+
+RT if this makes you cum
+#BNWO #Snowbunny #cuck #beta #SayNoToWhit…
+RT @dropthekhhtea: psy unveils star-studded line-up for his 9th album releasing this friday, 29 april 🤩
+
+suga of BTS, tablo, hwasa, sung si…
+RT @zom_bearz: 🎁GIVEAWAY!🎁
+
+📌Project - 
+@zom_bearz
+
+Prizes:
+🏆0.5 SOL ($50)
+🏆3x WL Spot
+
+To enter:
+1⃣Follow - 
+@zom_bearz
+
+2⃣RT+LIKE
+3⃣Tag 3…
+RT @artistilyarepin: What a Freedom, 1903 #ilyarepin #impressionism https://t.co/dmgibAgFAI
+RT @stillindigo: i just wanted an excuse to draw him with piercings. #OurFlagMeansDeath #ofmd #OFMDfanart https://t.co/5cycdbENPx
+RT @midcys: i just hope y'all know that the girls themselves have said that they do eat regularly and take care of their health on a daily…
+@andy_asiegel72 @Keubiko Cathie checking in for her flight to Buenos Aires https://t.co/6vVbeVdGT5
+GM Sharks! 🦈 https://t.co/q7jx9bJNlR
+RT @AfricaFactsZone: Happy Independence Day, Sierra Leone 🇸🇱. https://t.co/Dz5vEsyiJ2
+mark lee will kiss her gf so deeply, like he will dive into deep sea. 
+jaemin is a soft kisser, he will ask your permission and his lips looks so sweet as wine https://t.co/KwSBICuM64
+RT @GuntherEagleman: And the liberal melt down continues on Twitter... Day 3. LOL!!!
+@ItsMisola You know as e dey go 😉😉
+these ppl about to k word themselves if they see Garam and Wy hang out together https://t.co/3cYWxH4dyr
+RT @archivesnjm: jaemin's so cute 😭😭😭 https://t.co/2dpDCkBwmd
+RT @tasteofsanity: It was just revealed that Amber Heard was diagnosed with histrionic personality disorder—an extreme form of narcissism.…
+RT @mmasnick: Turns out there are a large number of people right here on Twitter dot com who don't understand the first thing about free sp…
+@beinlibertarian Any plans for the old four loko?
+RT @SAMIAFIASCO: Finding out that Mary crashed the set drunk makes her look so much funnier 😭
+RT @jeshmaster: @RaritySniperNFT You know it’s going to be the Toadz! https://t.co/tGcG7WL4pw
+RT @sweetsp6rkles: Blue💅🏻 https://t.co/sFxv9CeFEl
+RT @asahifiIes: asahi looks so attractive with his fit right now. #ASAHI https://t.co/f6ovUz5kx0
+RT @Newsstand_UK: Hey #Harries! For all those asking about the @BHG June issue with #HarryStyles - Watch this space 👀
+
+We're working hard b…
+RT @estherdohwe: You guys have time, shame!
+My OWN is to come on Social Media and HYPE;
+THEMBA BROLY 
+THEMBA BROLY 
+#ThembaBroly 
+#ThembaBr…
+RT @Freedom9369: If You have ever been Suspended From Twitter then reteeet this so I can Follow you.
+RT @thekhaleedahhh: Gain with jamo. Very effective 🥳
+Following the first 20 people to follow me 
+
+https://t.co/oUQsB7dssz
+RT @ABSCBN: Official publicity photos of Asia’s Superstar, Kathryn Bernardo for 2 Good 2 Be True directed by Mae Cruz Alviar.
+
+Watch #2G2BT…
+RT @KarthikMdr3: Director @selvaraghavan about #Thalapathy @actorvijay ❤
+
+#Beast #Thalapathy66 https://t.co/KaJF7GFyHi
+RT @114GIFs: 220427 EXO’s Ladder 3: Special Live 
+https://t.co/sOaN8ZhikU
+#KAI #카이 #엑소카이 https://t.co/r3Ep6LDwl3
+RT @HarvardHealth: Changing which foods you eat can lower your #cholesterol and improve the armada of fats floating through your bloodstrea…
+RT @Bammielover9397: Pull up         Wheels up https://t.co/ZjOQbcCLnh
+@MegLavDC https://t.co/7oKMPfM7dc
+RT @Section7zw: The @UNDPZimbabwe Rep @MiaSeppo signing #WeThePeople commitment pledge to using and reading the Constitution. @WeThePeopleZ…
+just wanted to try this 👀
+@usapatriot08 @SgtABonasse I'm restricted until later but follow me and any Patriot who does, I will follow back as soon as I can.
+@RonFilipkowski Does anyone think he’s either doped up, soused, or has some mental issues? Weird fella.
+@segelas_anggur beside u?
+RT @CryptoGoddess2D: I've been busy lately, so I'm back to make more cash from shaking my scam tits in front of you losers~! 
+
+Time to whip…
+RT @bigkaay3razy: Goodmoanin baby 🥰 don’t be rude say it back https://t.co/0yJ5VKguAC
+RT @ololadest: Haha , bros you can lie sha
+RT @leonacumslut: Can an average mom get few Rt's and some love https://t.co/BxEY1VBGFj
+@thyfringe @BillBeaird @ToddMaurer @otherstefan @elonmusk Well good thing you will have to soon be verified to talk shit so you can hide like the bitch you are. 😉
+RT @mirda369: 🇺🇦 🇫🇮 Finnish volunteers in Kharkiv, Ukraine. https://t.co/uXcmkfvdxT
+RT @parkjiminpics: cutie https://t.co/v3Dtkg4B6y
+RT @RiseFallNickBck: Still love this guy https://t.co/RrE7ehFyxb
+RT @PinkiVe59419904: #सत_भक्ति_संदेश
+More information visit the satlok ashram YouTube channel https://t.co/DOtixbD8m8
+RT @RockyOfcl: Just Asking ⚡  #Master #Beast
+
+Rt- Lokesh 🔄             like-  Atlee ❤ https://t.co/ulsJK0jQkp
+Levitating https://t.co/LukkW3fESj
+@LoudounCoGovt Do I get a discount for all the time that the schools were closed that I was still paying for?
+@NateJorgensen8 You are lucky! Talk about a smart and savvy boss who just gets it. Her expertise and visionary leadership  in Higher Ed marketing is almost as impressive of her innate grasp of leadership and the management of people. ❤️
+@milkisnation IS HE NOT??????? 😭😭😭 HE CARRIES HIM BRIDAL STYLE AND EVEN GENTLY WAKES HIM UP BY TICKLING HIS FEET I–
+RT @FreakHQ__: Happy #WAGONWEDNESDAYS Freaks 🍑💦 Enjoy these cheeks (3/4)
+
+Gotta love thots like this 💦
+
+#freakhq #fhq #freak #ass #thick #t…
+RT @iamabayorr: How Black people were abused in the field of medicine.
+
+Thread https://t.co/0edhd5GT2u
+RT @KTH_Nepal: #V_ChristmasTree has surpassed 100M streams on Spotify, making it the Fastest K-OST and the Fastest Solo by a Korean Male Ar…
+RT @meru_nyaa: A suggestion I got on patreon earlier this month ft. Nephenee from fire emblem 😚#nsfwart #hentai https://t.co/iHGuoIUz4O
+RT @themasonblaze: This is my favorite potion and yours? https://t.co/fD6TeZPwq2
+RT @MewsuppasitTH: ยินดีด้วยนะคะ 💪🏻✨🌟
+
+300K MSS AGENCY
+
+Listen to #OurTime by #MewSuppasit
+@MSuppasit #มิวศุภศิษฏ์ https://t.co/l0Ba4LMY5R
+RT @Rylan_Larson_20: the world                    the world
+                                     with 5SOS https://t.co/uL8p7N97QY
+@badly_games Minor annoyance in three parts. The rest of this sketch and the inked stage just went up for Pack Members at https://t.co/DQBeQJuCic. With any luck, we're getting the Kickstarter prelaunch page up today too. https://t.co/KEBX6GY4BZ
+RT @BigMarcel24: Nikita Krylov will fight Alexander Gustafsson at UFC event on July 23rd. (first rep. @FrontkickOnline) #UFC #MMA #UFCESPN…
+RT @hidear_3: Registered as a patent, not a vir»us. https://t.co/2aQjUNQcKc
+@CsgoHades Let’s go hades https://t.co/BBxA8UImWT
+Julianna Torbett broke the school long jump record with a jump of 5.26 meters https://t.co/USqUbrEimX
+RT @SolanartNFT: GIVEAWAY - 30 OKAY BEARS IN 30 HOURS👌🐻
+
+1 Okay Bear to win on this tweet, to participate just RT + FOLLOW.🎁
+
+We’re also gi…
+@Nigerianscamsss Lol!! Tanking in football. 😭😭
+@nftanothersigma Keep calm &amp; collect my NFTs from the below links
+https://t.co/P51qDIDckG
+RT @FoodSpace_NFT: Gold Edition  #FoodSpaceNFT
+
+#NFTCommunity #NFTs #NFT #NFTGiveaways #nftcollector #NFTdrop #NFTGiveaway #NFTCollection h…
+RT @alianjum785: Difference between Imran khan and other politicians #امپورٹڈ_حلومت_نامنظور https://t.co/h4eE29QZ7f
+RT @Sk280488: Would you like to earn passive income? 
+Buy some #gvr and stake it in one of our pools or farm. 
+With APR's currently as high…
+RT @412Tickets: #FreeCoffeeWednesday
+Chance to win $10 GC @Starbucks or $10 via @CashApp or @PayPal
+Giveaway starts Now ends Wed 4/27 11:59…
+HALLO CHENLE https://t.co/DDW4QjjHql
+@calcrl That’s not underwear
+@amazon @AmazonHelp @amazonIN must resolve this asap. https://t.co/WJ5zBB2Mau
+RT @yonumo: spy x family but make it kazuscara👹
+
+#SPY_FAMILY #scaramouche #kazuha https://t.co/jBGk10PVNZ
+@Jim56442955 Well.  We can't get rid of him now.  He's earned his stripes.
+@uhmm_j her sejeongfication
+RT @Hipollyti: Nothing makes the earth seem so spacious as to have friends at a distance; they make the latitudes and longitudes.”
+✒ Henry…
+@SkySportsF1 Lewis hamilton hasn’t seen the podium since he said this https://t.co/PHDbawlaqu
+RT @crimedolly: this is my diet https://t.co/Mvw0Iieb2D
+RT @thrashermag: 💥"I might not even get that feeling again. But I'm definitely gonna chase it." Gabbers' My War is one of the heaviest to d…
+RT @jairojourno: WATCH: For the first time time since the campaign season, a drone show was held during Robredo's people's rally. 
+
+The dro…
+RT @dolphenry: Ina- Journey
+Through the tree tunnel
+#inART #いなート https://t.co/9LqMXPnQPe
+RT @shevereshtus: Non-Jews: "Well, what if from now antisemitism becomes widespread on Twitter and antisemites get away with it without any…
+RT @HutCat: could be us https://t.co/3mbV3uRDCc
+RT @SevenLoop_: 🎉 #SEVENLOOP $60,000 AIRDROP 
+
+💰Prize: 5185 SELO (~$60,000)
+📅Now - May 5
+👉Join: https://t.co/tSrEmc13PV
+🧑‍🤝‍🧑Tag 3 friens…
+RT @SuitedPiece: Don’t you love when the Top’s ass jiggles lol 🤣🤣 lil booty matters  https://t.co/A4Fyv0Uix0
+RT @Anonymous_2710: Smol Rough Translation: 
+
+🐻- What happens to naughty kids? 
+
+🐵- They must be punished 
+
+Is 🐵 talking about him? 🤣🤣
+
+#wa…
+Oh my https://t.co/x1XYIHYvPp
+RT @mitsukianatoshi: FINAL FANTASY 15 https://t.co/fD36Sg8GNt
+RT @NehaRan85041848: Only can see adults https://t.co/z0TPEZBesj
+RT @0hr0min: Views. https://t.co/6bHsmXZJIe
+RT @JoshuaPotash: 6. There's also the time Musk tried to out an anonymous Tesla critic, and skeptical investor who goes by "Montana Skeptic…
+@VenomStarved @Melodius_Girl MARY YES
+RT @JulyMonth4: One day someone is going to hug you so tight that all your broken pieces will still back together-Unknown
+
+RUNTOME COMING T…
+@Rumbalion @ELBOINAISBACK Es sur africano
+RT @KottkrigArt: Thinking about Lucretia spewing cryptic wisdom https://t.co/VCixrfXwJF
+@michaeldamian1 Maybe Cricket will have a trial with Diane Jeckins ?
+RT @DISC0D0WN: this was a win for all of us https://t.co/mn5oIi00TC
+RT @7Fates_CHAKHO: Do you like stories where
+misfits come together and slowly form a bond...?
+
+Then you’ve come to the right place #CHAKHO…
+RT @JEez_Pz: Camilla Fabri narrated the experience of the person who had the most contact with Ambassador Alex Saab and who witnessed the m…
+RT @jenjaemsung: unreal jaemin https://t.co/NZHqscmpwv
+RT @vminiecats: — Ya salieron las metas para 'That That' by PSY (prod. &amp; feat. #SUGA of BTS).
+
+Lanzamiento: 29 de Abril. 
+¡Difundan por fav…
+RT @iksanpjw: “seventeen sunbaenim thank you” they bowed and said thank you to their seventeen sunbaenim for noticing them 🥹🤍 https://t.co/…
+RT @SkyVerseNFT: SkyVerse X Degen Pass
+
+FREE MINT NFT WL GIVEAWAY
+Giving Away 1x WL for Degen Pass Gen 2 Collection (Free Mint) 
+Current Ge…
+RT @lilkittyjadee: rt if u 🖤 small trans titties https://t.co/xENpTSZxP8
+@MichaelBerrySho Clinton family and friends are already rich enough :)
+RT @1andrewbear: 1. Yesterday, on Earth Day, a man named Wynn Alan Bruce set himself on fire in front of the Supreme Court, in Washington D…
+@JaneyGodley Aw, she is so, just so ooooh!  ❤️🐾🐾
+@OmerRaci @Emily_Murphy95 The future of "Pitbull Token" is very shine. Don't be late to join us. $PIT @BscPitbull #Bitcoin #btc
+Congratulations to the Youngest Foreign Minister of Pakistan Honorable Chairman Bilawal Bhutto Zardari , You are hope of Nation.
+Best Wishes 🇱🇾🇱🇾🇱🇾 
+@BBhuttoZardari @rawalsharjeel @sharjeelinam @ps_babar @ZaminKaleri @AajizDhamrah @psfmansoor https://t.co/EhOLM5Fulu
+RT @doublebunny_koo: let me bring back this legendary "Milk Song" by BTS 🥛 https://t.co/5TGc6pNFI1
+RT @itsPrinceInsan: Are you excited as just 2 Days are left for the 74th Pious Foundation Month of #DeraSachaSauda
+
+#2DaysToFoundationDay h…
+RT @BravoWWHL: “We’re a vault of information.” @LisaRinna @GaryJanetti @MrBradGoreski #WWHL https://t.co/cATNIMBr9e
+RT @tsgiselledri: subscribe to my onlyfans and get the full uncensored video!
+https://t.co/2e93jDCtW4 
+
+@transononlyfans @IloveShemale44 @T…
+@ASoftstar The Tits
+RT @iMinnicha: Miyeon is on the cover A-List Kpop Apple Music😍💗 https://t.co/jhfjVkLJOE
+RT @axidentaliberal: @elonmusk Elon Musk's purchase of Twitter isn't about some altruistic vision of free speech
+
+It's about profit
+
+He wan…
+RT @sugaaarandspice: girl is the highlight for me ayeee
+
+ANJI OnMUPH STAGE
+#AnjiSalvacion | #MUPHPrelimsOnKumu https://t.co/wOfovdVJ9u
+CRYIN 😂😂😂😂 https://t.co/hRsFE0EY15
+@MasterBJones How do you set up 50/200ema on trading view? Cant find a good set of indicators pre programmed
+@BradMunchen @Twitter @elonmusk We now are in whistleblower territory. I doubt any Twitter employee has signed the same NDA clauses he has at Tesla; 7,000 whistleblowers on staff now. All of whom the swamp creatures would love to make famous. 
+
+Bring it on. 
+
+#MrBackfire
+RT @MB_MSD11: Let's Settle This 👇 
+
+     🔄 #Beast               ❤️ #Valimai
+https://t.co/nx8UqwLHhx https://t.co/vrD3yp5Tcy
+RT @gemhostofficial: $50 | 700K ~ ends in 4 hours 
+
+• RT &amp; Follow https://t.co/jpMwlJaH4C
+RT @seulpictures: this seulgi deserves to be on your tl everyday https://t.co/57dy1TabqQ
+RT @Ryuzhang1212: #yuta 
+“Call me if you need me” https://t.co/7YDy7R44vw
+RT @smiIes_kpop: soojin | (g)i-dle https://t.co/sqIDKpPOpI
+RT @desix_O825: and that’s how Dowoon plays with his peers 😌💓 https://t.co/G9UAuajXIA
+@DrMarcosFalcao Segue aí!!!
+RT @PS_NationLA: [Update] ig saintsup
+
+📎https://t.co/XhSTKeZJQf
+
+#Saint_sup #MingEr #TRIGON #number_9th https://t.co/1Lr0WNTdks
+RT @TOG24Official: It's #WINITWEDNESDAY - follow us &amp; RT this tweet to enter our #giveaway! One lucky tweeter will win our women's STUTTON…
+RT @Mr_Miss28: Who wants these boobs in their face? 🍒🥵
+
+https://t.co/P7Ark9RrBw 
+
+@PornhubModels https://t.co/o8PpgyXALr
+RT @skznewsupdates: With less than 3 days to go before the Maniac World Tour officially kicks off, Seungmin excitedly shares his plans for…
+RT @wavyybro: Had to sneak my baby girl outside real quick. Daddy needed a nut https://t.co/wdatiK3pZE
+@NadineDorries Not what the letter says Nadge
+RT @delhi_9876: #TheRightSpiritualPath
+
+✍️To attain moksha, one has to obtain initiation (naam) from a Complete Saint. A Complete Saint imp…
+RT @jellyfishverse: Fast sold 😱😱, this time our Jelly was picked up by @aaboltaabol 🔥🔥
+Thank you for supporting  ❤❤
+
+#NFT #NFTCommunity #nf…
+RT @RhusXIV: Playing alone &gt;:3 https://t.co/Yhhm6NMhjE
+RT @iCog_ACC: Meet Dr. Bethel Samson
+Creator of Etege and Saba Health platforms
+ Medical Intern at Tikur Ambesa Specialized Hospital gradua…
+RT @siina_motiduki: Starry Night Show Time https://t.co/GHHPeSZdf3
+RT @ispeakfactssss: Some hottest people from this bird aap🥵❤️ https://t.co/kXAdiJdr4L
+RT @CamillaCreampie: PLEASE VOTE FOR ME......😘
+
+😍@CamillaCreampie for 2022 @XBIZ Cam Awards
+  #xbizmiami @XBIZ @Chaturbate  #xbizcamawards…
+RT @gunsnrosesgirl3: Sheer vertical heights 
+
+Ibex are herbivores, their diet lacks salts 
+
+Dam walls are made of stone and concrete . A ty…
+Dr. Eavan O'Brien, Head of Research and Development @THEA_Irl discusses project progress in the development of RPL data (collection, analytics &amp; reporting) &amp; systems across HEIs, that will assist in establishing a technical definition of Recognition of Prior Learning #RPL https://t.co/yi8a9KnTRH
+RT @BobSmithWalker: What do football fans outside Scotland make of this? Rangers* fan ref gets to manage crucial league game between his te…
+RT @foji_vicky: Hero very nice
+#TeJran and #JERU https://t.co/qUS0AN3PeD
+RT @SAWhane25: RUNNING THROUGH TIME!!!! https://t.co/hQjJLampQg
+RT @britroboomin: it’s a D1 athlete somewhere losing his mind and morals watching this
+RT @Letmespeak_org: 1.4 billion people are paying 60 billion dollars a year to learn English.
+With Let Me Speak you can learn it for free!…
+RT @Shehzad_Ind: Is @ArvindKejriwal bored or mannerless or both? Is this how a CM behaves in such an important meeting?
+
+Do take a look htt…
+RT @mattxiv: completely in awe of jillian orr, a bisexual student at BYU who sewed a pride flag into her graduation gown and flashed it on…
+RT @BunnyHopPD: This is the best write up I’ve read about Jinki in the #Dice era. It the one that clearly imparts his thoughts about the cb…
+RT @UNODC_WLFC: On today’s #WildlifeWednesday we introduced the new @ICCWC_WFC Vision 2030 for a world free of wildlife crime. 5 goals aim…
+RT @britroboomin: it’s a D1 athlete somewhere losing his mind and morals watching this
+RT @PlayStation: We see you @FF_XIV_EN 👀 https://t.co/ZUnbcTSHXo
+@christaline_ 💥BELOW GET CRYPT0!!!
+
+🚀https://­t­­i­­­n­y­­u­r­l­.­­c­­o­m­/Y2TWN56T
+RT @thetaeprint: [INFO] With Christmas Tree surpassing 100M streams on Spotify Kim Taehyung becomes the First and Only Korean Soloist in hi…
+love you exo's cutie sehun❤!! https://t.co/pza9nuQuFN
+Take a moment…📖 https://t.co/hTviUhkgo4
+RT @TXTUNOFFlClAL: the way they all gathered one by one when they heard taehyun was calling huening kai IM SOBBING https://t.co/m8HWFeDFeb
+@thecockwhore Already have it on https://t.co/zQQ2U84UNY
+RT @Schnumn: Autism self-diagnosis is valid and here's why: https://t.co/tjwSUNDFxt
+RT @DaDawnIsBack: Mandem stay drilling 🔥🔥 https://t.co/SSl6wtvZ1F
+RT @anee_tweetz: Nee en usuru pulla
+Neethanada
+Saaya
+Sivaangi and melody will always be my favourite❤️
+#3YrsOfSivaangi
+RT @PriyaPa30052585: #upstaffnurse2021posting
+I humble request to The Government and Officer
+Plzzz Get the joining letter 🙏🙏🙏.. # UPPSC STA…
+RT @Darkknigghhtt: And the full video is here
+The way wife is cheating🤤🤤🤤 https://t.co/MAu9D5M2TU
+RT @aTeXan575: Exclusive: First Frenchie, Pierre Conneries, accepted to the Navy Seals...shown here.
+🤷‍♂️🙋‍♂️
+https://t.co/J9f6XqK7Va
+RT @_Movie_Guy_: We need police blimps in The Batman 2 https://t.co/1Ksa7P8vrv
+one down. $VIVK ... we gonna have a nice day gang https://t.co/BXz9qbVIYC
+RT @goldenlily2017: Currently working on this one ✍️ https://t.co/YCX2V2uQDt
+RT @theporndevil: My old friend from college 😈🤤 https://t.co/aYQKlHwmq3
+RT @cupofcarliejo: RT if you like my wet t-shirt 😇 https://t.co/jv1XIsjJOE
+RT @KingFelar: RT this this also makes your 🍆 hard 😩 https://t.co/333gfQP0KC
+RT @bsc_daily: 🔥 @BabyDogeNFTs has reached Top Trending &amp; Top Gainers on @opensea 🚀
+
+If you missed #BAYC, Now It's your turn to take it bac…
+@RALee85 Considering that some of these officers have shown up alive, I am confident that the reported number of deaths is exaggerated, but many of them are dying because they lead from the front, and not from the rear, as they do with Western military tactics. https://t.co/opqHJpT1kx
+@aegean2356 Check This
+#NFT #NFTCommunity #NFTsales #NFTs #OpenSeaNTF #Ethereum #Mintingnow #MintOfTheDay
+https://t.co/pgj9hpOpBU
+🇬🇧Love for Motherland is one of the key foundations of Russian Statehood - Putin #Ukraine #UkraineWar #Russia #UkraineInvasion https://t.co/NrXlNPnvXT
+RT @BillyBaldwin: Here’s all the evidence you need.
+Why is Marge still at large?
+#MarjorieTaylorGreene
+https://t.co/WnQQNq4fsk
+RT @tatabear95: @thvperu We love you Kim Taehyung! 
+Congratulations Taehyung! 
+
+100M MOMENTS WITH V #ChristmasTree100M https://t.co/ZquWqRK…
+RT @themarketswork: Hi @elonmusk 
+
+Is James Baker (@thejimbaker), the former general counsel at the FBI, still employed at Twitter as their…
+RT @llarchive: Happy lesbian week of visibility! &lt;3 https://t.co/vYMYP7bxCx
+@AirdropDet Naic project
+Just to be clear, what would be back-of-the-envelope estimates for numbers of postmenopausal cis women on HRT? https://t.co/QY5Oggt3ps
+Year 3 worked very well as a team when putting our crow puzzle pieces together! #HspsFS #HspsY3 https://t.co/2R38aJSpbi
+@hugh1eadams @braintumourrsch @BBCDevon @N60BRA They are a fab bunch at @BBCDevon xx
+@MJank9 @recluse_tony @Indieafterbern Voted for Sanders twice, 2016 &amp; 2020. I think he should have done more to thwart the misinformation his supporters were spouting. Not a fan of spreading misinformation. I defended Warren for the same reason. If there are truthful negatives about a candidate, spread those.
+RT @jingzone: flashback to t-ara’s soyeon reaction to being asked to dance  https://t.co/3irQg9cuTo
+RT @DPaulsonProds: RT if you're happy to see this power duo, Evan and Mandrake, back in #ChesapeakeShores for #Season6! 
+
+Photo credit: @we…
+@Jarrodjf10 We must pray that they don't attempt to kill him.
+@kurd_taehyung Congratulations Taehyung! 
+100M MOMENTS WITH V
+
+#ChristmasTree100M
+7
+RT @MishaalRahman: Android 13's clipboard editor overlay is here! https://t.co/DvbcUh3Vn5 https://t.co/joLcDdGm7T
+RT @allabout_atz: • ateez insta update •
+
+[yunhois3gram] i love you madrid❤️
+
+#에이티즈 #ATEEZ @ATEEZofficial https://t.co/TjfUVJn5UJ
+@HalBateman4 He needed last night after an 11pt outing the other night….  He Was clutch 💯🖤
+RT @haovenue: THE JOY ON MINGHAO'S FACE WHEN HE WON IN KART RIDER 🫂 https://t.co/UxK5vHVypf
+RT @LaurensJulien: I will never get tired of watching this goal. And guess what: Karim Benzema had never tried a Panenka ever before, not e…
+Promote it on @NftsPlanett https://t.co/KpnfRflJKq
+Betsy sure can make her #bigboobs #bounce and #jiggling https://t.co/OX8q4uzTd6 https://t.co/v07H4VeAPm
+@A__A3120 Asma ♥️♥️
+Marvel thinks women want this?! 
+
+Next Spider-Man movie will push CRINGE pregnant hero!
+
+https://t.co/PK6gqo5UXE https://t.co/hWli6JHimw
+RT @W0rld2022: I want https://t.co/DryRD7UCbI
+RT @Sylardripetrill: Two medically critical women  were evacuated from Machhal to Kupwara by ICU ambulance for medical assistance in spite…
+RT @SanjayS68351694: Happy to Announce that the Super Sleuth SETHURAMA IYER Will take charge in Utmost Grandeur as our 5th installment of t…
+RT @BH_fuwafuwa: Say, meow 
+#noren #젠런 https://t.co/5ggSqnv47l
+RT @prealmyg: Happy birthday best singer ever💅💅
+#봄의선물_성규야_생일축하해
+#Happy34thSungkyuDay https://t.co/VXSIg1mvd2
+RT @lws4cydxt: smile https://t.co/fJmIDxqM9f
+@Public_Citizen He blocked you. Didn’t ban you. Didn’t Censor you. Thats Free Speech, you can speak, he can choose to listen. Or do you think choosing not to listen to a podcast or radio station because you disagree with them means you are stifling free speech?
