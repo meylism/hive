@@ -26,6 +26,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hive.conf.HiveConf;
+import org.apache.hadoop.hive.ql.filter.FilteredInputFormatFactory;
 import org.apache.hadoop.hive.ql.io.IOConstants;
 import org.apache.hadoop.hive.ql.io.StorageFormatDescriptor;
 import org.apache.hadoop.hive.ql.io.StorageFormatFactory;
@@ -157,8 +158,18 @@ public class StorageFormat {
       throw new SemanticException("Unrecognized file format in STORED AS clause:" +
           " '" + name + "'");
     }
-    inputFormat = ensureClassExists(descriptor.getInputFormat());
+
+    if (HiveConf.getBoolVar(conf, HiveConf.ConfVars.HIVE_SPARSER_FILTER)) {
+      FilteredInputFormatFactory filteredInputFormatFactory = new FilteredInputFormatFactory();
+      // get the input format that supports filtering
+      inputFormat = filteredInputFormatFactory.get(descriptor.getClass().getName());
+      inputFormat = ensureClassExists(inputFormat);
+    }
+    if (inputFormat == null) {
+      inputFormat = ensureClassExists(descriptor.getInputFormat());
+    }
     outputFormat = ensureClassExists(descriptor.getOutputFormat());
+
     if (serde == null) {
       serde = ensureClassExists(descriptor.getSerde());
     }
