@@ -1,16 +1,13 @@
---! qt:dataset:src
-
 DROP TABLE IF EXISTS tweets;
+
+set hive.io.filter.sparser = false;
 
 create table tweets (id string, text string, attachments string, author_id string, context_annotations string,
 conversation_id string, created_at string, entities string, geo string, in_reply_to_user_id string, lang string,
 non_public_metrics string, organic_metrics string, possibly_sensitive string, promoted_metrics string,
 public_metrics string, referenced_tweets string, reply_settings string, source string, withheld string, matching_rules string
-)   ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.JsonSerDe'
-    STORED AS
-    INPUTFORMAT 'org.apache.hadoop.hive.ql.filter.FilteredTextInputFormat'
-    OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat';
+) STORED AS JSONFILE;
 
-LOAD DATA LOCAL INPATH "${hiveconf:test.data.dir}/twitter_small.json" INTO TABLE tweets;
+LOAD DATA LOCAL INPATH "${hiveconf:test.data.dir}/twitter_large.json" INTO TABLE tweets;
 
-select text from tweets;
+select text from tweets where text = "elon";

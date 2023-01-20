@@ -2058,7 +2058,7 @@ public class HiveConf extends Configuration {
         new StringSet(ResultFileFormat.getValidSet()),
         "Default file format for storing result of the query."),
     HIVECHECKFILEFORMAT("hive.fileformat.check", true, "Whether to check file format or not when loading data files"),
-    HIVE_SPARSER_FILTER("hive.io.filter.sparser", true, "Whether to enable filtering using Sparser or not"),
+    HIVE_SPARSER_FILTER("hive.io.filter.sparser", false, "Whether to enable filtering using Sparser or not"),
 
     // default serde for rcfile
     HIVEDEFAULTRCFILESERDE("hive.default.rcfile.serde",

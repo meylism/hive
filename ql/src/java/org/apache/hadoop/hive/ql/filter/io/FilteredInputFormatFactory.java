@@ -15,27 +15,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.hadoop.hive.ql.filter;
 
-import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.*;
-import org.apache.hadoop.thirdparty.com.google.common.base.Charsets;
+package org.apache.hadoop.hive.ql.filter.io;
 
-import java.io.IOException;
+import org.apache.hadoop.hive.ql.io.JsonFileStorageFormatDescriptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class FilteredTextInputFormat extends TextInputFormat {
+import java.util.HashMap;
+import java.util.Map;
 
-  @Override
-  public RecordReader<LongWritable, Text> getRecordReader(InputSplit split, JobConf job, Reporter reporter)
-      throws IOException {
-    reporter.setStatus(split.toString());
-    String delimiter = job.get("textinputformat.record.delimiter");
-    byte[] recordDelimiterBytes = null;
-    if (null != delimiter) {
-      recordDelimiterBytes = delimiter.getBytes(Charsets.UTF_8);
-    }
+public class FilteredInputFormatFactory {
+  private static final Logger LOG = LoggerFactory.getLogger(FilteredInputFormatFactory.class);
 
-    return new FilteredLineRecordReader(job, (FileSplit)split, recordDelimiterBytes);
+  private final Map<String, String> fileDescToInputFormat;
+
+  public FilteredInputFormatFactory() {
+    fileDescToInputFormat = new HashMap();
+    // currently only json filtering is supported
+    fileDescToInputFormat.put(JsonFileStorageFormatDescriptor.class.getName(),
+        FilteredTextInputFormat.class.getName());
   }
+
+  public String get(String fileFormat) {
+    return fileDescToInputFormat.get(fileFormat);
+  }
+
 }

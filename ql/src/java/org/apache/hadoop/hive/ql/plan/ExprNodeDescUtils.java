@@ -21,12 +21,13 @@ package org.apache.hadoop.hive.ql.plan;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDFMurmurHash;
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDFOPAnd;
+import org.apache.commons.math3.analysis.function.Exp;
+import org.apache.hadoop.hive.ql.udf.generic.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.hadoop.hive.ql.exec.ColumnInfo;
@@ -41,14 +42,6 @@ import org.apache.hadoop.hive.ql.exec.UDFArgumentException;
 import org.apache.hadoop.hive.ql.exec.Utilities;
 import org.apache.hadoop.hive.ql.optimizer.ConstantPropagateProcFactory;
 import org.apache.hadoop.hive.ql.parse.SemanticException;
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDF;
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDFBridge;
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDFOPEqual;
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDFOPNotEqual;
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDFOPNotNull;
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDFOPNull;
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDFOPOr;
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDFStruct;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspector;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspectorUtils;
 import org.apache.hadoop.hive.serde2.objectinspector.PrimitiveObjectInspector;
@@ -241,6 +234,17 @@ public class ExprNodeDescUtils {
       split(e, flatExps);
     }
     return new ExprNodeGenericFuncDesc(TypeInfoFactory.booleanTypeInfo, new GenericUDFOPAnd(), "and", flatExps);
+  }
+
+  /**
+   * Creates a disjunction (OR) of the given expressions flattening nested disjunctions if possible.
+   */
+  public static ExprNodeGenericFuncDesc or(List<ExprNodeDesc> exps) {
+    List<ExprNodeDesc> flatExps = new ArrayList<>();
+    for (ExprNodeDesc e : exps) {
+      flattenOr(e, flatExps);
+    }
+    return new ExprNodeGenericFuncDesc(TypeInfoFactory.booleanTypeInfo, new GenericUDFOPOr(), "or", flatExps);
   }
 
   /**
@@ -891,6 +895,22 @@ public class ExprNodeDescUtils {
     }
   }
 
+  public static ExprNodeConstantDesc extractConstantExpr(ExprNodeDesc root) {
+    if (root instanceof ExprNodeConstantDesc) {
+      return (ExprNodeConstantDesc) root;
+    } else {
+      if (root.getChildren() == null) {
+        return null;
+      }
+
+      for (ExprNodeDesc exprNodeDesc: root.getChildren()) {
+        ExprNodeConstantDesc constantDesc = extractConstantExpr(exprNodeDesc);
+        if (constantDesc != null) return constantDesc;
+      }
+    }
+    return null;
+  }
+
   public static ExprNodeColumnDesc getColumnExpr(ExprNodeDesc expr) {
     while (FunctionRegistry.isOpCast(expr)) {
       expr = expr.getChildren().get(0);
@@ -1289,6 +1309,14 @@ public class ExprNodeDescUtils {
     return false;
   }
 
+  public static boolean isNot(ExprNodeDesc expr) {
+    if (expr instanceof ExprNodeGenericFuncDesc) {
+      ExprNodeGenericFuncDesc exprNodeGenericFuncDesc = (ExprNodeGenericFuncDesc) expr;
+      return (exprNodeGenericFuncDesc.getGenericUDF() instanceof GenericUDFOPNot);
+    }
+    return false;
+  }
+
   public static ExprNodeDesc replaceTabAlias(ExprNodeDesc expr, String oldAlias, String newAlias) {
     if (expr == null) {
       return null;
@@ -1319,7 +1347,165 @@ public class ExprNodeDescUtils {
         replaceTabAlias(expr, oldAlias, newAlias);
       }
     }
+  }
+
+  public static ExprNodeDesc toDnfW(ExprNodeDesc expr) {
+    try {
+      return toDnf(expr);
+    } catch (Exception e) {
+      return null;
+    }
 
   }
 
+  public static ExprNodeDesc toDnf(ExprNodeDesc expr) throws UDFArgumentException {
+    List<ExprNodeDesc> operands;
+
+    if (isAnd(expr)) {
+
+      operands = flattenAnd(expr);
+      ExprNodeDesc head = operands.get(0);
+      ExprNodeDesc headDnf = toDnf(head);
+      List<ExprNodeDesc> headDnfs = new ArrayList<>();
+      disjunctiveDecomposition(headDnf, headDnfs);
+      ExprNodeDesc tail = conjunction(operands.subList(1, operands.size()));
+      ExprNodeDesc tailDnf = toDnf(tail);
+      List<ExprNodeDesc> tailDnfs = new ArrayList<>();
+      disjunctiveDecomposition(tailDnf, tailDnfs);
+      List<ExprNodeDesc> list = new ArrayList<>();
+
+      for (ExprNodeDesc h : headDnfs) {
+        for (ExprNodeDesc t : tailDnfs) {
+          list.add(conjunction(Arrays.asList(h, t)));
+        }
+      }
+      return disjunction(list);
+
+    } else if (isOr(expr)) {
+
+      operands = flattenOr(expr);
+      return disjunction(toDnfs(operands));
+
+    } else if (isNot(expr)) {
+
+      ExprNodeDesc arg = expr.getChildren().get(0);
+
+      if (isNot(arg)) return toDnf(arg.getChildren().get(0));
+      else if (isOr(arg)) return toDnf(conjunction(transformNot(flattenOr(arg))));
+      else if (isAnd(arg)) return toDnf(disjunction(transformNot(flattenAnd(arg))));
+      else return expr;
+
+      // and(Util.transform(flattenOr(operands), RexUtil::addNot)));
+      // or(Util.transform(flattenAnd(operands), RexUtil::addNot)));
+    }
+
+    return expr;
+  }
+
+//  public static List<ExprNodeDesc> transformNot(List<ExprNodeDesc> exprs) {
+//    List<ExprNodeDesc> notNodes = new ArrayList<>();
+//    for (ExprNodeDesc e : exprs) {
+//      notNodes.add(new ExprNodeGenericFuncDesc(TypeInfoFactory.booleanTypeInfo, new GenericUDFOPNot(), "not",
+//          Arrays.asList(e)));
+//    }
+//    return notNodes;
+//  }
+
+  public static List<ExprNodeDesc> transformNot(List<ExprNodeDesc> exprs) {
+    for (int i=0; i<exprs.size(); i++) {
+      exprs.set(i, new ExprNodeGenericFuncDesc(TypeInfoFactory.booleanTypeInfo, new GenericUDFOPNot(), "not",
+          Arrays.asList(exprs.get(i))));
+    }
+    return exprs;
+  }
+
+  private static List<ExprNodeDesc> toDnfs(List<ExprNodeDesc> operands) {
+    List<ExprNodeDesc> list = new ArrayList<>();
+    for (ExprNodeDesc expr : operands) {
+      ExprNodeDesc dnf = toDnfW(expr);
+      if (isOr(expr)) {
+        list.addAll(dnf.getChildren());
+        break;
+      } else {
+        list.add(dnf);
+      }
+    }
+    return list;
+  }
+
+  public static List<ExprNodeDesc> flattenAnd(ExprNodeDesc expr) {
+    return split(expr);
+  }
+
+  public static List<ExprNodeDesc> flattenOr(ExprNodeDesc expr) {
+    return flattenOr(expr, new ArrayList<>());
+  }
+
+  /**
+   * split predicates by OR op
+   */
+  public static List<ExprNodeDesc> flattenOr(ExprNodeDesc current, List<ExprNodeDesc> splitted) {
+    if (FunctionRegistry.isOpOr(current)) {
+      for (ExprNodeDesc child : current.getChildren()) {
+        flattenOr(child, splitted);
+      }
+      return splitted;
+    }
+    if (indexOf(current, splitted) < 0) {
+      splitted.add(current);
+    }
+    return splitted;
+  }
+
+  /**
+   * Todo: desc
+   */
+  public static ExprNodeDesc applyNegatives(ExprNodeDesc expr) {
+    // expr.getChildren() returns a list of conjunctions or disjunctions depending on whether expr is in DNF or CNF,
+    // respectively.
+    for (ExprNodeDesc junction : expr.getChildren()) {
+      for (int i=0; i<junction.getChildren().size(); i++) {
+        ExprNodeDesc currentJunctionChildren = junction.getChildren().get(i);
+        if (isNot(currentJunctionChildren)) {
+          GenericUDF negativeUDF = checkNegativeExists(currentJunctionChildren);
+          if (negativeUDF == null) continue;
+          // NOT expr is always expected to have a single child
+          ExprNodeDesc notChildren = currentJunctionChildren.getChildren().get(0);
+          ExprNodeDesc newExpr = new ExprNodeGenericFuncDesc(
+              notChildren.getTypeInfo(),
+              negativeUDF,
+             "",
+              notChildren.getChildren());
+
+          junction.getChildren().set(i, newExpr);
+        }
+      }
+    }
+
+//    if (isNot(expr)) {
+//      if (checkNegativeExists(expr)) {
+//
+//      }
+//
+//    } else if (isNot(expr) || isOr(expr) || isAnd(expr)) {
+//      for (ExprNodeDesc e : expr.getChildren()) {
+//        if (chec)
+//        applyNegatives(e);
+//      }
+//    }
+    return expr;
+  }
+
+  private static GenericUDF checkNegativeExists(ExprNodeDesc expr) {
+    if (!(expr instanceof ExprNodeGenericFuncDesc)) return null;
+
+    try {
+      GenericUDF udf = ((ExprNodeGenericFuncDesc) expr.getChildren().get(0)).getGenericUDF();
+      return udf.negative();
+    }
+    catch (UnsupportedOperationException exception) {
+      // negative udf doesn't exists
+      return null;
+    }
+  }
 }
